@@ -6,7 +6,7 @@ body {
 /* --- Pantalla 1: Tarjetas de Músculos --- */
 
 .muscle-card {
-    min-height: 150px;
+    min-height: 220px; /* Aumentamos la altura mínima para la imagen */
     border-radius: 10px; /* Bordes más redondeados */
     border: none; /* Quitar el borde por defecto de la tarjeta */
     
@@ -15,6 +15,15 @@ body {
     
     /* ¡Muy importante para que el usuario sepa que es clickeable! */
     cursor: pointer; 
+
+    /* Centrar contenido vertical y horizontalmente */
+    display: flex; /* Usar flexbox para el contenido */
+    align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+}
+
+.muscle-card .card-body {
+    width: 100%; /* Asegura que el body ocupe todo el ancho */
 }
 
 .muscle-card:hover {
@@ -25,6 +34,21 @@ body {
 .muscle-card .card-title {
     font-weight: 500; /* Un peso de fuente semi-negrita */
     color: #333;
+}
+
+/* Estilo para las nuevas imágenes de músculos */
+.muscle-icon {
+    width: 80px;  /* Ancho fijo para los iconos */
+    height: 80px; /* Altura fija para los iconos */
+    object-fit: contain; /* Asegura que la imagen se ajuste sin cortarse */
+    filter: grayscale(100%); /* Opcional: ponerlos en blanco y negro */
+    opacity: 0.7; /* Opcional: un poco transparentes */
+    transition: filter 0.2s ease-in-out, opacity 0.2s ease-in-out; /* Transición para el hover */
+}
+
+.muscle-card:hover .muscle-icon {
+    filter: grayscale(0%); /* Volver a color al pasar el mouse */
+    opacity: 1; /* Opacidad completa */
 }
 
 
@@ -47,7 +71,8 @@ body {
 #modalImage {
     width: 100%;
     height: auto;
-    object-fit: cover; /* Asegura que la imagen llene el espacio sin deformarse */
+    max-height: 300px; /* Limitar altura para que no sea muy grande en pantallas grandes */
+    object-fit: contain; /* Ajustar imagen si es más alta que el espacio */
     border-radius: 8px; /* Bordes redondeados para la imagen */
     border: 1px solid #ddd; /* Un borde sutil */
 }
