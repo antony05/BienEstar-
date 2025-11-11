@@ -3,7 +3,7 @@ export const muscleGroups = [
     {
         key: "pectorales", // ID único
         name: "Pectorales", // Nombre para mostrar
-        icon: "assets/img/muscles/pectorales.jpg", // Icono de la tarjeta
+        icon: "assets/img/muscles/pectorales.png", // Icono de la tarjeta
         exercises: [ // Lista de ejercicios
             {
                 name: "Press de Banca",
