@@ -2,7 +2,7 @@
 export const muscleGroups = [
     {
         key: "pectorales", // ID único
-        name: "Pectorales P", // Nombre para mostrar
+        name: "Pectorales", // Nombre para mostrar
         icon: "assets/img/muscles/pectorales.webp", // Icono de la tarjeta
         exercises: [ // Lista de ejercicios
             {
@@ -44,7 +44,7 @@ export const muscleGroups = [
     {
         key: "biceps",
         name: "Bíceps",
-        icon: "assets/img/muscles/biceps.webp",
+        icon: "assets/img/muscles/biceps.jpg",
         exercises: [
             // { name: "Curl con barra", img: "...", desc: "...", details: {...} }
         ]
