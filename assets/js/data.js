@@ -3,7 +3,7 @@ export const muscleGroups = [
     {
         key: "pectorales", // ID único
         name: "Pectorales", // Nombre para mostrar
-        icon: "assets/img/muscles/pectorales.webp", // Icono de la tarjeta
+        icon: "assets/img/muscles/pectorales.jpg", // Icono de la tarjeta
         exercises: [ // Lista de ejercicios
             {
                 name: "Press de Banca",
@@ -28,7 +28,7 @@ export const muscleGroups = [
     {
         key: "hombros",
         name: "Hombros",
-        icon: "assets/img/muscles/hombros.webp",
+        icon: "assets/img/muscles/hombros.jpg",
         exercises: [
             {
                 name: "Press Militar con Barra",
@@ -52,7 +52,7 @@ export const muscleGroups = [
     {
         key: "triceps",
         name: "Tríceps",
-        icon: "assets/img/muscles/triceps.webp",
+        icon: "assets/img/muscles/triceps.jpg",
         exercises: [
              // ...
         ]
@@ -60,7 +60,7 @@ export const muscleGroups = [
     {
         key: "espalda",
         name: "Espalda",
-        icon: "assets/img/muscles/espalda.webp",
+        icon: "assets/img/muscles/espalda.jpg",
         exercises: [
              // ...
         ]
@@ -68,7 +68,7 @@ export const muscleGroups = [
     {
         key: "piernas",
         name: "Piernas",
-        icon: "assets/img/muscles/piernas.webp",
+        icon: "assets/img/muscles/piernas.jpg",
         exercises: [
              // ...
         ]
@@ -76,7 +76,7 @@ export const muscleGroups = [
     {
         key: "abdomen",
         name: "Abdomen",
-        icon: "assets/img/muscles/abdomen.webp",
+        icon: "assets/img/muscles/abdomen.jpg",
         exercises: [
              // ...
         ]
