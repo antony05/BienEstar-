@@ -1,10 +1,10 @@
-// AHORA ES UN ARRAY DE OBJETOS
-const muscleGroups = [
+// Añadimos "export" para que main.js pueda importarlo
+export const muscleGroups = [
     {
-        key: "pectorales", // Un 'id' único
-        name: "Pectorales", // El nombre a mostrar
-        icon: "assets/img/muscles/pectorales.webp", // El ícono de la tarjeta
-        exercises: [ // La lista de ejercicios que ya teníamos
+        key: "pectorales", // ID único
+        name: "Pectorales", // Nombre para mostrar
+        icon: "assets/img/muscles/pectorales.webp", // Icono de la tarjeta
+        exercises: [ // Lista de ejercicios
             {
                 name: "Press de Banca",
                 img: "assets/img/pectorales/press_banca.webp",
@@ -46,7 +46,7 @@ const muscleGroups = [
         name: "Bíceps",
         icon: "assets/img/muscles/biceps.webp",
         exercises: [
-            // ... Agrega aquí los ejercicios de bíceps
+            // { name: "Curl con barra", img: "...", desc: "...", details: {...} }
         ]
     },
     {
@@ -54,7 +54,7 @@ const muscleGroups = [
         name: "Tríceps",
         icon: "assets/img/muscles/triceps.webp",
         exercises: [
-             // ... etc.
+             // ...
         ]
     },
     {
@@ -62,7 +62,7 @@ const muscleGroups = [
         name: "Espalda",
         icon: "assets/img/muscles/espalda.webp",
         exercises: [
-             // ... etc.
+             // ...
         ]
     },
     {
@@ -70,7 +70,7 @@ const muscleGroups = [
         name: "Piernas",
         icon: "assets/img/muscles/piernas.webp",
         exercises: [
-             // ... etc.
+             // ...
         ]
     },
     {
@@ -78,8 +78,7 @@ const muscleGroups = [
         name: "Abdomen",
         icon: "assets/img/muscles/abdomen.webp",
         exercises: [
-             // ... etc.
+             // ...
         ]
     }
-    // ... Agrega más grupos musculares aquí
 ];
