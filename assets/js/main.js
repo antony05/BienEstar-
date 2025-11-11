@@ -1,31 +1,30 @@
+// 1. IMPORTAMOS los datos desde data.js
+// La ruta './data.js' es relativa a este archivo (main.js)
+import { muscleGroups } from './data.js';
+
+// 2. Esperamos a que el HTML esté listo
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Referencias a las "pantallas" y elementos clave
+    // --- Referencias a elementos del DOM ---
     const viewMuscles = document.getElementById('view-muscles');
     const viewExercises = document.getElementById('view-exercises');
+    const muscleCardContainer = document.getElementById('muscle-card-container');
     const exerciseListContainer = document.getElementById('exercise-list-container');
     const btnBack = document.getElementById('btn-back');
     const exerciseTitle = document.getElementById('exercise-title');
     
-    // Contenedor para las tarjetas de músculos (NUEVO)
-    const muscleCardContainer = document.getElementById('muscle-card-container');
-
-    // Referencias a los elementos del Modal (sin cambios)
+    // Referencias al Modal
     const exerciseModal = document.getElementById('exerciseModal');
     const modalTitle = document.getElementById('modalTitle');
     const modalImage = document.getElementById('modalImage');
     const modalDesc = document.getElementById('modalDesc');
     const modalDetailsList = document.getElementById('modalDetailsList');
 
-    // --- (NUEVA FUNCIÓN) ---
-    // 1. Genera las tarjetas de músculos desde data.js
+    // --- Función 1: Renderizar las tarjetas de Músculos ---
     function renderMuscleCards() {
-        // Limpiar el contenedor por si acaso
-        muscleCardContainer.innerHTML = '';
+        muscleCardContainer.innerHTML = ''; // Limpiamos el contenedor
         
-        // Usamos la variable 'muscleGroups' de data.js
         muscleGroups.forEach(group => {
-            // Creamos el HTML para cada tarjeta
             const cardHTML = `
                 <div class="col">
                     <div class="card h-100 text-center shadow-sm muscle-card" data-muscle="${group.key}">
@@ -36,36 +35,31 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
             `;
-            // Añadimos la tarjeta al contenedor
             muscleCardContainer.innerHTML += cardHTML;
         });
     }
 
-    // --- (FUNCIÓN MODIFICADA) ---
-    // 2. Muestra la lista de ejercicios de un músculo
+    // --- Función 2: Mostrar la pantalla de Ejercicios ---
     function showExercises(muscleKey) {
-        
-        // AHORA BUSCAMOS EN EL ARRAY 'muscleGroups'
+        // Encontramos el grupo muscular en nuestros datos
         const muscleGroup = muscleGroups.find(group => group.key === muscleKey);
         
-        // Si no lo encontramos, no hacemos nada (seguridad)
-        if (!muscleGroup) {
-            console.error(`No se encontró el grupo muscular: ${muscleKey}`);
-            return;
-        }
+        if (!muscleGroup) return; // Seguridad
 
         const muscleName = muscleGroup.name;
         const exercises = muscleGroup.exercises;
         
-        exerciseListContainer.innerHTML = '';
-        exerciseTitle.textContent = muscleName;
+        exerciseListContainer.innerHTML = ''; // Limpiamos lista anterior
+        exerciseTitle.textContent = muscleName; // Ponemos el título
 
+        // Creamos los botones para cada ejercicio
         exercises.forEach(exercise => {
             const button = document.createElement('button');
             button.type = 'button';
             button.className = 'list-group-item list-group-item-action';
             button.textContent = exercise.name;
             
+            // Guardamos TODOS los datos en el botón para que el modal los lea
             button.setAttribute('data-bs-toggle', 'modal');
             button.setAttribute('data-bs-target', '#exerciseModal');
             button.setAttribute('data-name', exercise.name);
@@ -76,49 +70,49 @@ document.addEventListener('DOMContentLoaded', () => {
             exerciseListContainer.appendChild(button);
         });
 
+        // Cambiamos de pantalla
         viewMuscles.classList.add('d-none');
         viewExercises.classList.remove('d-none');
     }
 
-    // 3. Función para volver (sin cambios)
+    // --- Función 3: Volver a la pantalla de Músculos ---
     function showMuscles() {
         viewExercises.classList.add('d-none');
         viewMuscles.classList.remove('d-none');
     }
 
-    // ---- EVENT LISTENERS (Oyentes de Clics) ----
+    // --- Asignación de Eventos (Event Listeners) ---
 
-    // --- (LISTENER MODIFICADO) ---
-    // 1. Clic en una tarjeta de músculo (Usando Delegación de Eventos)
-    //    Escuchamos en el 'contenedor' y no en cada tarjeta.
+    // 1. Clic en una tarjeta de músculo (usando delegación de eventos)
     muscleCardContainer.addEventListener('click', (event) => {
-        // event.target es el elemento exacto donde se hizo clic
-        // .closest() busca el ancestro más cercano que coincida
         const card = event.target.closest('.muscle-card');
-        
-        // Si se hizo clic dentro de una tarjeta (y no en el espacio entre ellas)
         if (card) {
             const muscleKey = card.getAttribute('data-muscle');
             showExercises(muscleKey);
         }
     });
 
-    // 2. Clic en el botón "Volver" (sin cambios)
+    // 2. Clic en el botón "Volver"
     btnBack.addEventListener('click', showMuscles);
 
-    // 3. Lógica para rellenar el Modal (sin cambios)
+    // 3. Evento cuando el Modal está a punto de mostrarse
     exerciseModal.addEventListener('show.bs.modal', (event) => {
+        // Obtenemos el botón que disparó el modal
         const button = event.relatedTarget;
+        
+        // Extraemos los datos del botón
         const name = button.getAttribute('data-name');
         const img = button.getAttribute('data-img');
         const desc = button.getAttribute('data-desc');
         const details = JSON.parse(button.getAttribute('data-details'));
 
+        // Rellenamos el contenido del modal
         modalTitle.textContent = name;
         modalImage.src = img;
         modalDesc.textContent = desc;
-        modalDetailsList.innerHTML = '';
 
+        // Limpiamos y rellenamos la lista de detalles
+        modalDetailsList.innerHTML = '';
         if (details.principal) {
             modalDetailsList.innerHTML += `<li><strong>Músculo principal:</strong> ${details.principal}</li>`;
         }
@@ -127,8 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
-    // --- (LLAMADA INICIAL) ---
-    // Al cargar la página, genera las tarjetas de músculos
+    // --- Carga Inicial ---
+    // Renderizamos las tarjetas de músculos en cuanto carga la página
     renderMuscleCards();
-
 });
