@@ -5,46 +5,54 @@ body {
 
 /* --- Pantalla 1: Tarjetas de Músculos --- */
 .muscle-card {
-    min-height: 220px;
+    min-height: 250px; /* Aumentar la altura para que la imagen se vea bien */
     border-radius: 10px;
     border: none;
+    overflow: hidden; /* Muy importante para que la imagen no se salga de los bordes redondeados */
+    position: relative; /* Necesario para posicionar el contenido encima */
+    
+    /* Efectos de transición para el hover */
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    
+    /* ¡Muy importante para que el usuario sepa que es clickeable! */
     cursor: pointer; 
     
-    /* Centrar contenido vertical y horizontalmente */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.muscle-card .card-body {
-    width: 100%; /* Asegura que el body ocupe todo el ancho */
+    /* Quitar los estilos de centrado que ya no necesitamos aquí */
+    display: block; 
+    align-items: unset;
+    justify-content: unset;
 }
 
 .muscle-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2); /* Sombra más pronunciada al hover */
+}
+
+/* Nueva clase para el contenido de la tarjeta (nombre del músculo) */
+.muscle-card-content {
+    position: absolute; /* Posiciona el contenido sobre la imagen */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%); /* Degradado para que el texto sea legible */
+    transition: background 0.2s ease-in-out;
+}
+
+.muscle-card:hover .muscle-card-content {
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%); /* Degradado más oscuro al hover */
 }
 
 .muscle-card .card-title {
-    font-weight: 500;
-    color: #333;
+    font-weight: 700; /* Texto más negrita para el nombre del músculo */
+    color: #fff; /* Aseguramos que el texto sea blanco */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Sombra de texto para mejorar legibilidad */
+    margin-bottom: 0; /* Bootstrap puede agregar margen, lo quitamos */
 }
 
-/* Estilo para los iconos de músculos */
-.muscle-icon {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-    filter: grayscale(100%);
-    opacity: 0.7;
-    transition: filter 0.2s ease-in-out, opacity 0.2s ease-in-out;
-}
+/* Eliminar estilos de muscle-icon ya que ya no se usa la etiqueta <img> */
+/* .muscle-icon { ... } */
 
-.muscle-card:hover .muscle-icon {
-    filter: grayscale(0%);
-    opacity: 1;
-}
 
 /* --- Pantalla 2: Lista de Ejercicios --- */
 #exercise-list-container .list-group-item {
@@ -57,15 +65,16 @@ body {
     background-color: #e9ecef;
 }
 
+
 /* --- Modal de Ejercicio --- */
 #modalImage {
     width: 100%;
     height: auto;
-    max-height: 300px; /* Evita que la imagen sea demasiado grande */
-    object-fit: contain; /* Ajusta la imagen sin deformarla */
+    max-height: 300px;
+    object-fit: contain;
     border-radius: 8px;
     border: 1px solid #ddd;
-    margin: 0 auto; /* Centra la imagen si es más pequeña */
+    margin: 0 auto;
     display: block;
 }
 
