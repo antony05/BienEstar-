@@ -2,7 +2,7 @@
 export const muscleGroups = [
     {
         key: "pectorales", // ID único
-        name: "Pectorales", // Nombre para mostrar
+        name: "Pectorales P", // Nombre para mostrar
         icon: "assets/img/muscles/pectorales.webp", // Icono de la tarjeta
         exercises: [ // Lista de ejercicios
             {
