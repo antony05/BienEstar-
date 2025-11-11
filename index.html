@@ -15,63 +15,15 @@
         </header>
         <div class="container">
             <h2 class="text-center mb-4">Elige un grupo muscular</h2>
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                
-                <div class="col">
-                    <div class="card h-100 text-center shadow-sm muscle-card" data-muscle="pectorales">
-                        <div class="card-body d-flex flex-column justify-content-center">
-                            <h5 class="card-title fs-3">Pectorales</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 text-center shadow-sm muscle-card" data-muscle="hombros">
-                        <div class="card-body d-flex flex-column justify-content-center">
-                            <h5 class="card-title fs-3">Hombros</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 text-center shadow-sm muscle-card" data-muscle="biceps">
-                        <div class="card-body d-flex flex-column justify-content-center">
-                            <h5 class="card-title fs-3">Bíceps</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 text-center shadow-sm muscle-card" data-muscle="triceps">
-                        <div class="card-body d-flex flex-column justify-content-center">
-                            <h5 class="card-title fs-3">Tríceps</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 text-center shadow-sm muscle-card" data-muscle="espalda">
-                        <div class="card-body d-flex flex-column justify-content-center">
-                            <h5 class="card-title fs-3">Espalda</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 text-center shadow-sm muscle-card" data-muscle="piernas">
-                        <div class="card-body d-flex flex-column justify-content-center">
-                            <h5 class="card-title fs-3">Piernas</h5>
-                        </div>
-                    </div>
-                </div>
-                 <div class="col">
-                    <div class="card h-100 text-center shadow-sm muscle-card" data-muscle="abdomen">
-                        <div class="card-body d-flex flex-column justify-content-center">
-                            <h5 class="card-title fs-3">Abdomen</h5>
-                        </div>
-                    </div>
+            
+            <div id="muscle-card-container" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                 </div>
 
-            </div>
         </div>
     </section>
 
-    <section id="view-exercises" class="d-none"> <header class="bg-dark text-white text-center p-4 mb-4">
+    <section id="view-exercises" class="d-none">
+        <header class="bg-dark text-white text-center p-4 mb-4">
             <div class="container d-flex justify-content-between align-items-center">
                 <button id="btn-back" class="btn btn-outline-light">Volver</button>
                 <h1 id="exercise-title" class="fs-3">Ejercicios</h1>
@@ -80,7 +32,7 @@
         <div class="container">
             <h2 class="text-center mb-4">Elige un ejercicio</h2>
             <div id="exercise-list-container" class="list-group">
-                </div>
+            </div>
         </div>
     </section>
 
@@ -90,35 +42,10 @@
 
     <div class="modal fade" id="exerciseModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="modalTitle"></h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-12 col-md-6 mb-3 mb-md-0">
-                            <img src="" alt="Animación del ejercicio" class="img-fluid rounded" id="modalImage">
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <h3>Cómo realizarlo:</h3>
-                            <p id="modalDesc"></p>
-                            <h4>Detalles:</h4>
-                            <ul id="modalDetailsList">
-                                </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                </div>
             </div>
-        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    
-    <script src="assets/js/data.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/data.js"></script> <script src="assets/js/main.js"></script>
 </body>
 </html>
