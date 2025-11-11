@@ -1,0 +1,71 @@
+/* --- Estilos Generales --- */
+body {
+    background-color: #f8f9fa; /* Un gris muy claro de fondo */
+}
+
+/* --- Pantalla 1: Tarjetas de Músculos --- */
+
+.muscle-card {
+    min-height: 150px;
+    border-radius: 10px; /* Bordes más redondeados */
+    border: none; /* Quitar el borde por defecto de la tarjeta */
+    
+    /* Efectos de transición para el hover */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    
+    /* ¡Muy importante para que el usuario sepa que es clickeable! */
+    cursor: pointer; 
+}
+
+.muscle-card:hover {
+    transform: translateY(-5px); /* Efecto "levantar" al pasar el mouse */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12); /* Una sombra más pronunciada */
+}
+
+.muscle-card .card-title {
+    font-weight: 500; /* Un peso de fuente semi-negrita */
+    color: #333;
+}
+
+
+/* --- Pantalla 2: Lista de Ejercicios --- */
+
+#exercise-list-container .list-group-item {
+    font-size: 1.1rem; /* Texto un poco más grande */
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+/* Efecto hover para la lista de ejercicios */
+#exercise-list-container .list-group-item-action:hover {
+    background-color: #e9ecef; /* Un gris claro al pasar el mouse */
+}
+
+
+/* --- Modal de Ejercicio (El cuadro explicativo) --- */
+
+#modalImage {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Asegura que la imagen llene el espacio sin deformarse */
+    border-radius: 8px; /* Bordes redondeados para la imagen */
+    border: 1px solid #ddd; /* Un borde sutil */
+}
+
+#modalDetailsList {
+    list-style-type: none; /* Quitar los puntos de la lista */
+    padding-left: 0;
+    margin-top: 1rem;
+}
+
+#modalDetailsList li {
+    background-color: #f1f3f5; /* Fondo ligero para cada detalle */
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+#modalDetailsList li strong {
+    color: #000;
+}
